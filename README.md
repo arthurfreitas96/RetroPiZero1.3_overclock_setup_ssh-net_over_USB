@@ -1,4 +1,4 @@
-# RetroPiZero1.3_setup_net-ssh_over_USB
+# RetroPiZero1.3_overclock_setup_net-ssh_over_USB
 
 I recently bought a Raspberry Pi Zero 1.3 and flashed a RetroPie 4.6 image to it's SD card. Testing some emulators using the stock settings, I noticed some expected issues. For example, testing snes9x_2002 (standard emulator for SNES on RPI Zero), I noticed that SuperFX games ran poorly. Some of the other more graphics demanding games, such as Donkey Kong Country 3, suffered with major fps drops and poor audio.
 
