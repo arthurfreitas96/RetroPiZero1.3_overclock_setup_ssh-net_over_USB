@@ -12,7 +12,9 @@ After downgrading to 3.8, I couldn't set SSH or Internet sharing over USB though
 
 Current setup:
 
--Included the following lines in the RPi's config.txt:
+-Raspberry Pi Zero running RetroPie 3.8 (here, you can find this version image: https://sudomod.com/forum/viewtopic.php?t=1779)
+
+-Included the following lines to the RPi's config.txt:
 arm_freq=1050
 over_voltage=8
 core_freq=500
@@ -26,4 +28,4 @@ over_voltage_sdram=4
 
 -Set resolution to 640x480
 
--Included the correct gba_bios.bin in /home/pi/RetroPie/BIOS
+-Included the correct gba_bios.bin and gbc_bios.bin to /home/pi/RetroPie/BIOS
