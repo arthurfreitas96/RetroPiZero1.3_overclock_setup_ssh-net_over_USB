@@ -43,7 +43,7 @@ iface enp0s20u3 inet static
 
 On the PC's side:
 
--Included the following lines to /etc/network/interfaces:
+-Included the following lines to /etc/network/interfaces (remember to change 'enp0s20u3' by your interface name given by ifconfig):
 auto enp0s20u3
 iface enp0s20u3 inet static
 	address 192.168.7.1
