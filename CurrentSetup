@@ -1,0 +1,42 @@
+Current setup:
+
+-Raspberry Pi Zero running RetroPie 4.5.1 (here, you can find this version image: https://github.com/RetroPie/RetroPie-Setup/releases)
+
+-Included the following lines to the RPi's config.txt:
+arm_freq=1050
+over_voltage=8
+core_freq=500
+v3d_freq=333
+h264_freq=333
+isp_freq=333
+sdram_freq=500
+over_voltage_sdram=4
+dtoverlay=dwc2
+
+-Included the following command after rootwait to the RPi's cmdline.txt:
+modules-load=dwc2,g_ether
+
+-Included the following lines to the RPi's /etc/network/interfaces:
+allow-hotplug usb0
+iface usb0 inet static
+	address 192.168.7.2
+	netmask 255.255.255.0
+	network 192.168.7.0
+	broadcast 192.168.7.255
+	gateway 192.168.7.1
+	dns-nameservers 8.8.8.8 8.8.4.4
+  
+-Included the following lines in my PC's /etc/network/interfaces:
+auto enp0s20u3
+iface enp0s20u3 inet static
+	address 192.168.7.1
+	netmask 255.255.255.0
+	network 192.168.7.0
+	broadcast 192.168.7.255
+	gateway 192.168.7.1
+  
+-Included the correct gba_bios.bin and gbc_bios.bin to /home/pi/RetroPie/BIOS
+
+-Set video driver to dispmanx in RetroArch settings->drivers
+
+-Set resolution to 640x480 (it's usually already defined as standard resolution for libretro emulators)
