@@ -4,10 +4,17 @@ I recently bought a Raspberry Pi Zero 1.3 and flashed a RetroPie 4.6 image to it
 
 To solve this problem I followed this conservative overclock setup: https://www.reddit.com/r/RetroPie/comments/bs0a0i/snes_performance_benchmarks_on_pi_zero_and_how_to/. According to the link, with the recommended settings, you can achieve a increase of 30% in the RPi performance emulating SNES.
 
-Then I wanted to install an optional SNES emulator to it, PiSnes, which was developed to run in the RPi Zero. However, since there's no built-in wifi in this board, I had no connection to the Internet. Solving this second problem required following the instructions presented on this link: https://www.slideshare.net/GSHCO/raspberry-zero-usb-in-linux (attention: remember to change the interface names of the commands presented on the slide #15 by your interface names). That way, you can connect the RPi Zero to your Linux PC using only a USB cable and access it via SSH. According to the link, you can share Internet from your PC to the RPi Zero using only the instructions presented: connect the RPi Zero to your PC using a USB cable, wait for around 90 seconds for the RPi to boot and connect your PC to the new USB-Ethernet network using a manually defined IP (the same that was defined as standard gateway in the RPi Zero, 192.168.7.1 if you followed the tutorial). Then you can ping or SSH your RPi Zero using the static IP defined for the RPi, 192.168.7.2 if you followed the tutorial.
+Then I wanted to install an optional SNES emulator to it, PiSnes, which was developed to run in the RPi Zero. However, since there's no built-in wifi in this board, I had no connection to the Internet. Solving this second problem required following the instructions presented on this link: https://www.slideshare.net/GSHCO/raspberry-zero-usb-in-linux (attention: remember to change the interface names of the commands presented on the slide #15 by your interface names). That way, you can connect the RPi Zero to your Linux PC using only a USB cable, access it via SSH and you can share Internet from your PC to the RPi Zero using only the instructions presented. To access RetroPie with SSH you can run the command 'ssh pi@retropie.local'.
 
-There was some issues, though. Trying to ping using the address raspberrypi.local or ssh using pi@raspberrypi never worked for me, so I always needed to ping or SSH the RPi Zero using it's IP. Also, to successfully connect to the Internet and ping google.com, I needed to edit the RPi's file /etc/network/interfaces and include the line (without quotation) 'nameserver 8.8.8.8'.
+To autoconnect to my RPi every time i plugged it in my PC. I edited the PC's /etc/network/interfaces file and included script to bind a static ip to the interface, enps020u3 in my case. So I included the following lines at the end of the file:
 
-And there it is, my current RetroPie setup for the Raspberry Pi Zero 1.3. Now I am still experiencing some problems with DNS resolution and unstable Internet connection on the RPi side. I am also having a bad time emulating GBA on my RPi and looking forward to solve this. I included the GBA BIOS in my RPi's /home/pi/RetroPie/BIOS and defined the GBA standard emulator as lr-mgba, because lr-gpsp is just not working. With lr-mgba I am facing some major fps drops and sound crackling. Any improvements in my setup and I include the new info here.
+auto enp0s20u3
+iface enp0s20u3 inet static
+        address 192.168.7.1
+        netmask 255.255.255.0
+        network 192.168.7.0
+        broadcast 192.168.7.255
+        gateway 192.168.7.1
 
-ATTENTION: this setup was discontinued and my current setup is described in the file FullSpeedGBA.
+
+After some research, I found out that lr-gpsp is broken on RetroPie 4.6, but there is a known work around that requires replacing the gpsp_libretro.so with the previous version of the core (4.5), according to the user juchong in https://retropie.org.uk/forum/topic/25111/lr-gpsp-giving-illegal-instruction-on-raspberry-pi-models-0w-3b-and-4/22. Following this method didn't solve my problem and I couldn't make lr-gpsp to work on RetroPie 4.6, so I downgraded to 4.5.1, but kept my overclocking configuration. Now I have gba at full speed in all games i tested until now, with nice sound too, using lr-gpsp.
