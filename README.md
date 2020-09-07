@@ -8,4 +8,6 @@ Then I wanted to install an optional SNES emulator to it, PiSnes, which was deve
 
 There was some issues, though. Trying to ping using the address raspberrypi.local or ssh using pi@raspberrypi never worked for me, so I always needed to ping or SSH the RPi Zero using it's IP. Also, to successfully connect to the Internet and ping google.com, I needed to edit the RPi's file /etc/network/interfaces and include the line (without quotation) 'nameserver 8.8.8.8'.
 
-And there it is, my current RetroPie setup for the Raspberry Pi Zero 1.3. Now I am having a bad time emulating GBA on my RPi and looking forward to solve this. I included the GBA BIOS in my RPi's /home/pi/RetroPie/BIOS and defined the GBA standard emulator as lr-mgba, because lr-gpsp is just not working. With lr-mgba I am facing some major fps drops and sound crackling. Any improvements in my setup and I include the new info here.
+And there it is, my current RetroPie setup for the Raspberry Pi Zero 1.3. Now I am still experiencing some problems with DNS resolution and unstable Internet connection on the RPi side. I am also having a bad time emulating GBA on my RPi and looking forward to solve this. I included the GBA BIOS in my RPi's /home/pi/RetroPie/BIOS and defined the GBA standard emulator as lr-mgba, because lr-gpsp is just not working. With lr-mgba I am facing some major fps drops and sound crackling. Any improvements in my setup and I include the new info here.
+
+ATTENTION: this setup was discontinued and my current setup is described in the file FullSpeedGBA.
