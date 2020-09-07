@@ -1,0 +1,9 @@
+I managed to make lr-gpsp work. It was necessary to downgrade RetroPie and now I am using version 3.8,
+because I was looking forward to replicate this: https://www.youtube.com/watch?v=Mgbr6ybhhCU. After some research,
+I found out that lr-gpsp is broken on RetroPie 4.6, but there is a known work around that requires replacing the gpsp_libreto.so
+with the previous version of the core (4.5), according to the user juchong
+in https://retropie.org.uk/forum/topic/25111/lr-gpsp-giving-illegal-instruction-on-raspberry-pi-models-0w-3b-and-4/22.
+Following this method didn't solve my problem and I couldn't make lr-gpsp to work on RetroPie 4.6, so I downgraded.
+Now I have gba at full speed in all games i tested until now, with nice sound too, using lr-gpsp.
+
+After downgrading to 3.8, I couldn't set SSH or Internet sharing over USB though.
