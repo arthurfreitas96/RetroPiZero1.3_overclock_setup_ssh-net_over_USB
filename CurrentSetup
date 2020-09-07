@@ -40,3 +40,18 @@ iface enp0s20u3 inet static
 -Set video driver to dispmanx in RetroArch settings->drivers
 
 -Set resolution to 640x480 (it's usually already defined as standard resolution for libretro emulators)
+
+On the PC's side:
+
+-Included the following lines to /etc/network/interfaces:
+auto enp0s20u3
+iface enp0s20u3 inet static
+	address 192.168.7.1
+	netmask 255.255.255.0
+	network 192.168.7.0
+	broadcast 192.168.7.255
+	gateway 192.168.7.1
+
+-Installed SSHFS.
+
+-Defined automount of the RPi's filesystem using the app Gigolo.
