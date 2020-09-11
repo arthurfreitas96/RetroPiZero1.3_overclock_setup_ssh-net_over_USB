@@ -28,7 +28,7 @@ iface usb0 inet static
   
 -Included the correct gba_bios.bin and gbc_bios.bin to /home/pi/RetroPie/BIOS
 
--Set video driver to dispmanx in RetroArch settings->drivers
+-Set video driver to dispmanx in RetroArch's settings->drivers
 
 -Set resolution to 640x480 (it's usually already defined as standard resolution for libretro emulators)
 
