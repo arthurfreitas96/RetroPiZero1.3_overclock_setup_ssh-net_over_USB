@@ -2,18 +2,15 @@ Current setup:
 
 -Raspberry Pi Zero running RetroPie 4.5.1 (here, you can find this version image: https://github.com/RetroPie/RetroPie-Setup/releases)
 
--Included the following lines to the RPi's config.txt:
-arm_freq=1050
-over_voltage=8
-core_freq=500
-v3d_freq=333
-h264_freq=333
-isp_freq=333
-sdram_freq=500
-over_voltage_sdram=4
-dtoverlay=dwc2
+-Passive headsink added.
 
--Included the following command after rootwait to the RPi's cmdline.txt:
+-Included the following lines to the RPi's config.txt, following https://www.raspberrypi.org/forums/viewtopic.php?t=249071:
+arm_freq=1095
+gpu_freq=550
+over_voltage=2
+core_freq=515
+sdram_freq=533
+over_voltage_sdram=1-Included the following command after rootwait to the RPi's cmdline.txt:
 modules-load=dwc2,g_ether
 
 -Included the following lines to the RPi's /etc/network/interfaces:
